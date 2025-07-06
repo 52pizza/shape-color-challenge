@@ -1,0 +1,239 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 20px;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* --- 規則小視窗樣式 --- */
+#rules-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#rules-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2, .modal-content p, .modal-content ul {
+    color: #333;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.modal-content ul {
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
+#modal-start-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#modal-start-button:hover {
+    background-color: #45a049;
+}
+
+/* --- 主遊戲容器樣式 --- */
+#game-container {
+    position: relative; /* 設為定位基準 */
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+/* GitHub 連結樣式 */
+.github-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #333;
+}
+.github-link svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease-in-out;
+}
+.github-link:hover svg {
+    transform: scale(1.15);
+    color: #000;
+}
+
+#info-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    min-height: 100px;
+}
+
+#stats-container {
+    /* 容器樣式 */
+}
+
+.stats-top-row {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.stats-accuracy-row {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #333;
+}
+
+#message {
+    font-size: 1.2em;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+#message svg {
+    width: 96px;
+    height: 96px;
+}
+
+#card-display {
+    width: 100%;
+    aspect-ratio: 14 / 9;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 0 auto 20px auto;
+    background-color: #f4e9d8;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card-item {
+    width: 30%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: top 0.3s ease, left 0.3s ease;
+}
+
+.card-item svg {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+#items-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: 3px solid transparent;
+}
+
+@media (hover: hover) {
+    .item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px #f0c40f;
+        border-color: #f0c40f;
+    }
+}
+
+.item.correct-answer-highlight {
+    box-shadow: 0 0 25px 5px #2ecc71;
+    border-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+.item svg {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 70px;
+        height: 70px;
+    }
+    #message svg {
+        width: 70px;
+        height: 70px;
+    }
+    .github-link svg {
+        width: 24px;
+        height: 24px;
+    }
+}
